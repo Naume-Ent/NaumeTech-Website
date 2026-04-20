@@ -426,14 +426,6 @@ section {
   background: var(--bg-white);
 }
 
-.about-brochure {
-  margin-top: 1.5rem;
-}
-
-.about-brochure a {
-  font-weight: 600;
-}
-
 /* —— Cards grid —— */
 .grid-services {
   display: grid;
@@ -552,7 +544,7 @@ section {
 
 @media (min-width: 900px) {
   .clients-grid {
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(5, 1fr);
   }
 }
 
@@ -561,22 +553,29 @@ section {
   align-items: center;
   justify-content: center;
   min-height: 72px;
-  padding: 0.75rem 1rem;
+  padding: 0.85rem 0.75rem;
   background: var(--bg-white);
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
-  font-size: 0.8rem;
-  font-weight: 600;
-  text-align: center;
-  color: #6b6b6b;
   filter: grayscale(1);
-  transition: filter 0.3s var(--ease), color 0.3s var(--ease), border-color 0.3s var(--ease);
+  transition: filter 0.3s var(--ease), border-color 0.3s var(--ease);
+}
+
+.client-slot .client-logo {
+  max-height: 48px;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.client-logo[alt="Physiocare"] {
+  max-height: 58px;
 }
 
 .client-slot:hover,
 .client-slot:focus-within {
   filter: grayscale(0);
-  color: var(--text);
   border-color: rgba(27, 94, 32, 0.35);
 }
 
@@ -837,6 +836,18 @@ section {
   width: 20px;
   height: 20px;
   fill: currentColor;
+  display: block;
+  shape-rendering: geometricPrecision;
+}
+
+.social-row .social-icon--linkedin {
+  width: 21px;
+  height: 21px;
+}
+
+.social-row .social-icon--tiktok {
+  width: 18px;
+  height: 21px;
 }
 
 .footer-bottom {
