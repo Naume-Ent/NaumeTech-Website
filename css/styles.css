@@ -529,6 +529,183 @@ section {
   color: var(--text-muted);
 }
 
+/* —— Apps in progress —— */
+.app-showcase-grid {
+  display: grid;
+  gap: 1.5rem;
+  max-width: 1100px;
+  margin-inline: auto;
+}
+
+@media (min-width: 900px) {
+  .app-showcase-grid {
+    grid-template-columns: 1fr 1fr;
+    align-items: stretch;
+  }
+}
+
+.app-showcase-card {
+  display: grid;
+  gap: 0;
+  max-width: 920px;
+  margin-inline: auto;
+  background: var(--bg-white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.app-showcase-grid .app-showcase-card {
+  max-width: none;
+  margin-inline: 0;
+}
+
+@media (min-width: 800px) {
+  .app-showcase-card:not(.app-showcase-card--vhona):not(.app-showcase-card--brand) {
+    grid-template-columns: 1.35fr 1fr;
+    align-items: stretch;
+  }
+
+  /* Mbokoto: equal halves — logo / copy + progress */
+  .app-showcase-card--brand {
+    grid-template-columns: 1fr 1fr;
+    align-items: stretch;
+  }
+}
+
+/* Vhona: full-width screenshot on top, details below — no side-crop */
+.app-showcase-card--vhona {
+  grid-template-columns: 1fr;
+}
+
+.app-showcase-media {
+  background: var(--bg-muted);
+  min-height: 200px;
+}
+
+.app-showcase-media:not(.app-showcase-media--brand):not(.app-showcase-media--fullshot) img {
+  width: 100%;
+  height: 100%;
+  min-height: 220px;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+}
+
+.app-showcase-media--fullshot {
+  min-height: 0;
+}
+
+.app-showcase-media--fullshot img {
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  object-fit: contain;
+  object-position: top center;
+  display: block;
+}
+
+.app-showcase-media--brand {
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+  padding: 0;
+  min-height: 240px;
+  background: linear-gradient(160deg, #f3efe8 0%, #ebe6dd 45%, #e8e2d8 100%);
+  border-right: 1px solid var(--border);
+}
+
+@media (max-width: 799px) {
+  .app-showcase-media--brand {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    min-height: 200px;
+  }
+}
+
+.app-showcase-brand-frame {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(1.25rem, 4vw, 2.25rem);
+  min-height: 0;
+}
+
+.app-showcase-brand-img {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  max-height: min(340px, 72vh);
+  object-fit: contain;
+  object-position: center;
+  display: block;
+  /* Sharper, cleaner scaling on retina */
+  image-rendering: auto;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  filter: drop-shadow(0 2px 12px rgba(26, 26, 26, 0.06));
+}
+
+.app-showcase-body {
+  padding: 1.5rem 1.5rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.app-showcase-title {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  margin: 0;
+  color: var(--text);
+}
+
+.app-showcase-desc {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+.app-progress-wrap {
+  margin-top: 0.35rem;
+}
+
+.app-progress-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-bottom: 0.45rem;
+}
+
+.app-progress-pct {
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+
+.app-progress-track {
+  height: 10px;
+  background: var(--bg-muted);
+  border-radius: 999px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.app-progress-fill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 999px;
+  transition: width 0.5s var(--ease);
+}
+
 /* —— Clients —— */
 .clients-grid {
   display: grid;
