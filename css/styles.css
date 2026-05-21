@@ -18,7 +18,10 @@
   --font-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
   --font-sans:
     'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-  --header-h: 4.5rem;
+  /* Header/bar height tracks the larger logo + vertical padding */
+  --header-h: clamp(5.5rem, 9vw, 7.5rem);
+  --header-logo-h: clamp(4.25rem, 8vw, 6.75rem); /* ~68px–108px */
+  --header-logo-w: clamp(14rem, 38vw, 26rem);
   --ease: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -109,8 +112,7 @@ a:hover {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: rgba(250, 247, 242, 0.92);
-  backdrop-filter: blur(10px);
+  background: var(--bg-page);
   border-bottom: 1px solid var(--border);
   transition: box-shadow 0.25s var(--ease);
 }
@@ -123,6 +125,7 @@ a:hover {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: nowrap;
   gap: 1rem;
   min-height: var(--header-h);
   padding-block: 0.5rem;
@@ -141,10 +144,34 @@ a:hover {
 }
 
 .logo-img {
-  width: 120px;
-  height: 88px;
+  display: block;
+  flex-shrink: 0;
+  width: auto;
+  height: auto;
   object-fit: contain;
-  border-radius: 8px;
+  object-position: left center;
+}
+
+/* Navbar logo — height-led sizing, cream background matches header */
+.site-header .logo-link {
+  flex: 0 1 auto;
+  min-width: 0;
+  background: var(--bg-page);
+}
+
+.site-header .logo-img {
+  width: var(--header-logo-w);
+  height: auto;
+  max-height: var(--header-logo-h);
+  max-width: min(26rem, 78vw);
+  object-fit: contain;
+  object-position: left center;
+  image-rendering: high-quality;
+}
+
+.footer-brand .logo-img {
+  height: 3.75rem;
+  width: auto;
 }
 
 .logo-text {
@@ -173,6 +200,7 @@ a:hover {
   font-weight: 500;
   font-size: 0.95rem;
   position: relative;
+  white-space: nowrap;
 }
 
 .nav-list a::after {
@@ -314,17 +342,59 @@ a:hover {
   width: 100%;
 }
 
-@media (min-width: 960px) {
+@media (min-width: 1200px) {
+  .site-header {
+    --header-logo-w: clamp(12rem, 22vw, 26rem);
+  }
+
   .nav-desktop {
     display: flex;
+    flex-shrink: 0;
     align-items: center;
-    gap: 2rem;
+    gap: 1.5rem;
   }
+
+  .nav-desktop .nav-list {
+    flex-wrap: nowrap;
+    gap: 1.35rem;
+  }
+
+  .nav-desktop .nav-list li {
+    flex-shrink: 0;
+  }
+
+  .nav-desktop .btn-primary {
+    white-space: nowrap;
+    flex-shrink: 0;
+    padding: 0.7rem 1.15rem;
+    font-size: 0.9rem;
+  }
+
   .menu-toggle {
     display: none;
   }
+
   .nav-mobile {
     display: none !important;
+  }
+}
+
+@media (min-width: 1400px) {
+  .site-header {
+    --header-logo-w: clamp(14rem, 38vw, 26rem);
+  }
+
+  .nav-desktop {
+    gap: 2rem;
+  }
+
+  .nav-desktop .nav-list {
+    gap: 1.75rem;
+  }
+
+  .nav-desktop .btn-primary {
+    padding: 0.75rem 1.35rem;
+    font-size: 0.95rem;
   }
 }
 
