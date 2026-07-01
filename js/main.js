@@ -102,43 +102,87 @@
     });
   }
 
-  /* Contact form — FormSubmit */
+  /* Contact form — FormSubmit (AJAX) */
   var form = document.getElementById("contact-form");
   var statusEl = document.getElementById("form-status");
+  var formSuccessMessage =
+    "Thank you — your message was sent. We'll get back to you soon. For urgent matters, call 081-324-6257.";
+
+  function showFormStatus(message, type) {
+    if (!statusEl) return;
+    statusEl.textContent = message;
+    statusEl.className = "form-status" + (type ? " is-" + type : "");
+    statusEl.style.display = message ? "block" : "none";
+  }
+
+  function setFormBusy(isBusy) {
+    var btn = form && form.querySelector('button[type="submit"]');
+    if (!btn) return;
+    btn.disabled = isBusy;
+    btn.setAttribute("aria-busy", isBusy ? "true" : "false");
+    btn.textContent = isBusy ? "Sending…" : "Send message";
+  }
 
   if (form && statusEl) {
     form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
       var name = form.querySelector("#name");
       var email = form.querySelector("#email");
       var msg = form.querySelector("#message");
+      var gotcha = form.querySelector('input[name="_gotcha"]');
       if (!name || !email || !msg) return;
 
+      if (gotcha && gotcha.value) return;
+
       if (!name.value.trim() || !email.value.trim() || !msg.value.trim()) {
-        e.preventDefault();
-        statusEl.textContent = "Please fill in your name, email, and message.";
-        statusEl.className = "form-status is-error";
-        statusEl.style.display = "block";
+        showFormStatus("Please fill in your name, email, and message.", "error");
         return;
       }
 
-      statusEl.className = "form-status";
-      statusEl.style.display = "none";
-      statusEl.textContent = "";
+      showFormStatus("", "");
+      setFormBusy(true);
 
-      var btn = form.querySelector('button[type="submit"]');
-      if (btn) {
-        btn.disabled = true;
-        btn.setAttribute("aria-busy", "true");
-        btn.textContent = "Sending…";
+      var action = form.getAttribute("action") || "";
+      if (action.indexOf("/ajax/") === -1) {
+        action = action.replace("formsubmit.co/", "formsubmit.co/ajax/");
       }
+
+      fetch(action, {
+        method: "POST",
+        body: new FormData(form),
+        headers: { Accept: "application/json" },
+      })
+        .then(function (response) {
+          return response.json().then(function (data) {
+            if (response.ok) {
+              return data;
+            }
+            throw new Error(
+              (data && data.message) || "Unable to send your message. Please try again."
+            );
+          });
+        })
+        .then(function () {
+          form.reset();
+          showFormStatus(formSuccessMessage, "success");
+        })
+        .catch(function (err) {
+          showFormStatus(
+            err.message ||
+              "Something went wrong. Please email info@naumetech.com or call 081-324-6257.",
+            "error"
+          );
+        })
+        .finally(function () {
+          setFormBusy(false);
+        });
     });
   }
 
-  /* Optional: surface FormSubmit success via query string */
+  /* Legacy redirect success (if user lands with ?contact=sent) */
   if (window.location.search.indexOf("contact=sent") !== -1 && statusEl) {
-    statusEl.textContent =
-      "Thank you — your message was sent. We'll get back to you soon. For urgent matters, call 081-324-6257.";
-    statusEl.className = "form-status is-success";
+    showFormStatus(formSuccessMessage, "success");
     if (window.history.replaceState) {
       window.history.replaceState({}, document.title, window.location.pathname + window.location.hash);
     }
