@@ -102,6 +102,26 @@
     });
   }
 
-  /* Contact form uses a native HTML POST to FormSubmit. No cross-origin fetch is required. */
+  /* Keep floating actions from covering form controls on small screens. */
+  var contactSection = document.getElementById("contact");
+  if (contactSection) {
+    function syncContactVisibility() {
+      if (window.matchMedia("(max-width: 650px)").matches) {
+        var bounds = contactSection.getBoundingClientRect();
+        document.body.classList.toggle(
+          "contact-in-view",
+          bounds.top < window.innerHeight && bounds.bottom > 0
+        );
+      } else {
+        document.body.classList.remove("contact-in-view");
+      }
+    }
+
+    window.addEventListener("scroll", syncContactVisibility, { passive: true });
+    window.addEventListener("resize", syncContactVisibility);
+    syncContactVisibility();
+  }
+
+  /* The Formspree handler is configured on the contact form in index.html. */
   updateActiveNav();
 })();
