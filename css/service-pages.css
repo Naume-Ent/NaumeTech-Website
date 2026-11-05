@@ -76,3 +76,26 @@
 .service-page .btn-primary:focus-visible { background:#c4e574; color:#10291b !important; border:1px solid #c4e574; }
 .service-page .btn-primary:hover { background:#d5f48d; border-color:#d5f48d; }
 .service-page .contact-banner .btn-secondary:hover { background:rgba(255,255,255,.12); color:#fff !important; }
+
+
+/* Starting prices for service pages only. No homepage or contact styles changed. */
+.service-page .service-pricing{background:#f5f8f2}
+.service-page .service-price-card{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(260px,.75fr);gap:clamp(1.25rem,4vw,3.25rem);background:#fff;border:1px solid #dce7d8;border-radius:24px;padding:clamp(1.35rem,3vw,2.5rem);box-shadow:0 14px 45px rgba(8,57,34,.05)}
+.service-page .service-price-main,.service-page .service-price-aside{min-width:0}
+.service-page .service-price-label{font-size:.78rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:#327148;margin:0 0 .5rem}
+.service-page .service-price-amount{display:flex;align-items:baseline;flex-wrap:wrap;gap:.5rem;color:#315342;margin:0 0 1rem;font-weight:600}
+.service-page .service-price-amount strong{font-size:clamp(2.8rem,5vw,4.3rem);letter-spacing:-.06em;line-height:1.05;color:#133c29}
+.service-page .service-price-amount span{font-size:.93rem;font-weight:600;color:#496654}
+.service-page .service-price-main>p:not(.service-price-amount):not(.service-price-label),.service-page .service-price-aside p{color:#466150;line-height:1.7}
+.service-page .service-price-includes{list-style:none;margin:1.4rem 0;padding:0}
+.service-page .service-price-includes li{position:relative;padding:.55rem 0 .55rem 1.65rem;border-bottom:1px solid #e4ece0;color:#254937}
+.service-page .service-price-includes li:before{content:"✓";position:absolute;top:.5rem;left:0;font-weight:800;color:#28804b}
+.service-page .service-price-aside{align-self:start;background:#eef4e9;border-radius:18px;padding:1.5rem}
+.service-page .service-price-aside h3{font-size:1.25rem;margin:0 0 .7rem;color:#183d29}
+.service-page .service-price-aside .btn,.service-page .service-price-card--compact .btn{display:inline-flex;margin-top:1rem;justify-content:center;white-space:normal;text-align:center}
+.service-page .service-price-footnote{max-width:1030px;color:#486151;line-height:1.7;margin:1.4rem 0 0}
+.service-page .service-price-footnote a{font-weight:700}
+.service-page .service-price-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.25rem}
+.service-page .service-price-card--compact{display:block}
+@media(max-width:800px){.service-page .service-price-card,.service-page .service-price-grid{grid-template-columns:1fr}}
+@media(max-width:620px){.service-page .service-price-card{padding:1.1rem;border-radius:18px}.service-page .service-price-aside{padding:1.1rem}.service-page .service-price-card .btn{width:100%}.service-page .service-price-amount strong{font-size:clamp(2.65rem,12vw,3.6rem)}}
