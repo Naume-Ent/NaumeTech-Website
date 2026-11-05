@@ -69,3 +69,10 @@
   .service-page .service-actions .btn { width:100%; }
 }
 @media(prefers-reduced-motion:reduce){.service-page .related-card{transition:none}.service-page .related-card:hover{transform:none}}
+
+/* Enforce readable contrast against lime primary buttons throughout service pages. */
+.service-page .btn-primary,
+.service-page .btn-primary:hover,
+.service-page .btn-primary:focus-visible { background:#c4e574; color:#10291b !important; border:1px solid #c4e574; }
+.service-page .btn-primary:hover { background:#d5f48d; border-color:#d5f48d; }
+.service-page .contact-banner .btn-secondary:hover { background:rgba(255,255,255,.12); color:#fff !important; }
