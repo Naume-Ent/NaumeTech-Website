@@ -102,11 +102,11 @@
     });
   }
 
-  /* Contact form — FormSubmit (AJAX) */
+  /* Contact form - FormSubmit (AJAX) */
   var form = document.getElementById("contact-form");
   var statusEl = document.getElementById("form-status");
   var formSuccessMessage =
-    "Thank you — your message was sent. We'll get back to you soon. For urgent matters, call 081-324-6257.";
+    "Thank you - your message was sent. We'll get back to you soon. For urgent matters, call 081-324-6257.";
 
   function showFormStatus(message, type) {
     if (!statusEl) return;
