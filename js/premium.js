@@ -57,6 +57,30 @@
     });
   });
 
+  // Keep service enquiries coming from dedicated pages friction-free.
+  // Accept only values that already exist in the contact form's service list.
+  if (serviceSelect) {
+    var requestedService = new URLSearchParams(window.location.search).get("service");
+    if (requestedService) {
+      var selected = Array.prototype.some.call(serviceSelect.options, function (opt) {
+        return opt.value === requestedService && opt.value !== "";
+      });
+      if (selected) {
+        serviceSelect.value = requestedService;
+        var key = Object.keys(solutions).find(function (k) {
+          return solutions[k].formValue === requestedService;
+        });
+        if (key) {
+          applySolution(key);
+        } else {
+          options.forEach(function (button) {
+            button.setAttribute("aria-pressed", "false");
+          });
+        }
+      }
+    }
+  }
+
   // Respect explicit visitor selection in the contact form itself.
   if (serviceSelect) {
     serviceSelect.addEventListener("change", function () {
