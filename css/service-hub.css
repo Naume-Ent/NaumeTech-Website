@@ -1,0 +1,22 @@
+/* Detailed service pages hub on the homepage */
+.service-hub { background:#f5f8f2; padding-block:clamp(4.5rem,8vw,7rem); }
+.service-hub .service-hub-intro { max-width:870px; margin-bottom:2.5rem; }
+.service-hub .section-title { font:650 clamp(2.5rem,4.8vw,4.65rem)/1.09 var(--font-sans); letter-spacing:-.055em; color:#14392a; }
+.service-hub .section-intro { font-size:1.12rem; line-height:1.75; color:#486455; }
+.service-hub-grid { display:grid; grid-template-columns: repeat(6,minmax(0,1fr)); gap:1rem; }
+.service-hub-card { grid-column:span 2; display:flex; flex-direction:column; min-height:315px; padding:clamp(1.5rem,2.8vw,2.3rem); border-radius:22px; background:#e7eee5; border:1px solid rgba(32,86,49,.12); color:#153f2a; text-decoration:none; transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease; }
+.service-hub-card:nth-child(2n+1) { background:#edf3e9; }
+.service-hub-card--featured { background:#10392e!important; color:#fff; }
+.service-hub-number { font-weight:750; font-size:.75rem; letter-spacing:.11em; color:#357448; margin-bottom:auto; }
+.service-hub-card--featured .service-hub-number { color:#c5e881; }
+.service-hub-card h3 { font:650 clamp(1.35rem,2.1vw,1.8rem)/1.25 var(--font-sans); letter-spacing:-.035em; margin:2rem 0 .65rem; color:inherit; }
+.service-hub-card p { margin:0 0 1.5rem; color:#456351; font-size:.96rem; line-height:1.65; }
+.service-hub-card--featured p { color:#d0e6da; }
+.service-hub-link { margin-top:auto; font-weight:750; font-size:.88rem; color:#246c3a; display:flex; align-items:center; justify-content:space-between; }
+.service-hub-card--featured .service-hub-link { color:#d9f4a2; }
+.service-hub-card:hover,.service-hub-card:focus-visible { transform:translateY(-5px); box-shadow:0 19px 48px rgba(11,55,29,.12); border-color:rgba(38,116,65,.5); }
+.service-hub-card:focus-visible { outline:3px solid #3f914c; outline-offset:3px; }
+@media (min-width:901px) { .service-hub-card:nth-child(4),.service-hub-card:nth-child(5) { grid-column:span 3; } }
+@media (max-width:900px) { .service-hub-card { grid-column:span 3; } }
+@media (max-width:620px) { .service-hub-grid { grid-template-columns:1fr; } .service-hub-card { grid-column:1; min-height:255px; } }
+@media (prefers-reduced-motion: reduce) { .service-hub-card { transition:none; } .service-hub-card:hover { transform:none; } }
