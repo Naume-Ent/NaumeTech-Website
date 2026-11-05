@@ -116,3 +116,30 @@ body { overflow-x: clip; }
   .app-showcase-media img,.solution-option { transition:none !important; }
   .app-showcase-card:hover .app-showcase-media img { transform:none; }
 }
+
+/* Contrast fixes: override the base theme's !important secondary-link colour. */
+.hero .hero-actions .btn-secondary,
+.hero .hero-actions .btn-secondary:hover,
+.hero .hero-actions .btn-secondary:focus-visible,
+#managed-it .hero-actions .btn-secondary,
+#managed-it .hero-actions .btn-secondary:hover,
+#managed-it .hero-actions .btn-secondary:focus-visible {
+  color: #ffffff !important;
+}
+.cta-banner .cta-inner h2 {
+  color: #ffffff;
+}
+.cta-banner .cta-inner p {
+  color: #eff9f2;
+}
+.cta-banner .cta-actions .btn-secondary {
+  background: #ffffff;
+  color: #14372a !important;
+  border-color: #ffffff;
+}
+.cta-banner .cta-actions .btn-secondary:hover,
+.cta-banner .cta-actions .btn-secondary:focus-visible {
+  background: #e9f4e9;
+  color: #14372a !important;
+  border-color: #e9f4e9;
+}
