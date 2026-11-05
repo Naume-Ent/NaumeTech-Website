@@ -56,6 +56,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/premium.css" />
 
     <script type="application/ld+json">
       {
@@ -104,10 +105,10 @@
             <li><a href="#services">Services</a></li>
             <li><a href="#managed-it">Managed IT</a></li>
             <li><a href="#why-us">Why Us</a></li>
-            <li><a href="#in-progress">In progress</a></li>
+            <li><a href="#in-progress">Our Work</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
-          <a class="btn btn-primary" href="#contact">Book Consultation</a>
+          <a class="btn btn-primary" href="#contact">Get a Quote</a>
         </nav>
 
         <button
@@ -130,10 +131,10 @@
           <li><a href="#services">Services</a></li>
             <li><a href="#managed-it">Managed IT</a></li>
           <li><a href="#why-us">Why Us</a></li>
-          <li><a href="#in-progress">In progress</a></li>
+          <li><a href="#in-progress">Our Work</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
-        <a class="btn btn-primary" href="#contact">Book Consultation</a>
+        <a class="btn btn-primary" href="#contact">Get a Quote</a>
       </nav>
     </header>
 
@@ -145,22 +146,24 @@
           <div class="hero-content reveal">
             <p class="section-label">South Africa · Technology partner</p>
             <h1 id="hero-heading">
-              Smart, Scalable, and Secure Tech Solutions
+              Smart, <span class="hero-highlight">Scalable</span>, and Secure Tech Solutions
             </h1>
             <p class="lead">
-              From email and user administration to business applications and integrations, we help South African teams keep technology working and build what's next.
+              From managed IT and Microsoft 365 to bespoke software, eCommerce and business integrations, we build and support the technology behind growing South African businesses.
             </p>
             <div class="hero-actions">
               <a class="btn btn-primary" href="#contact"
                 >Request an IT Consultation</a
               >
-              <a class="btn btn-secondary" href="#services">View Services</a>
+              <a class="btn btn-secondary" href="#in-progress">Explore Our Work</a>
             </div>
+            <p class="hero-kicker">One technology partner. Practical support, reliable systems and digital solutions built around your goals.</p>
           </div>
         </div>
+        <a class="hero-scroll-cue" href="#about">Discover Naume Tech</a>
       </section>
 
-      <section id="about" class="section-alt" aria-labelledby="about-heading">
+      <section id="about" class="section-alt premium-intro" aria-labelledby="about-heading">
         <div class="container">
           <div class="reveal">
             <p class="section-label">Who we are</p>
@@ -195,15 +198,15 @@
             </p>
           </div>
           <div class="grid-services">
-            <article class="service-card reveal">
+            <article class="service-card reveal" data-index="01 / CLOUD">
               <h3>Microsoft 365 Administration</h3>
               <p>Tenant setup, user onboarding and offboarding, Exchange email, Teams and SharePoint administration, licence management and MFA configuration.</p>
             </article>
-            <article class="service-card reveal">
+            <article class="service-card reveal" data-index="02 / SUPPORT">
               <h3>Ongoing IT Support</h3>
               <p>Remote troubleshooting, scheduled maintenance and clearly scoped support retainers. Support hours, response times and on-site work are agreed before service begins.</p>
             </article>
-            <article class="service-card reveal">
+            <article class="service-card reveal" data-index="03 / SECURITY">
               <h3>Security &amp; Business Continuity</h3>
               <p>Access reviews, security configuration checks and planning for suitable backup and recovery arrangements. Security products and specialist response are scoped separately.</p>
             </article>
@@ -224,12 +227,10 @@
           <div class="reveal">
             <p class="section-label">Product lab</p>
             <h2 id="in-progress-heading" class="section-title">
-              Apps in progress
+              Technology in action
             </h2>
             <p class="section-intro">
-              A look at platforms we're actively building real interfaces, real
-              momentum. More products will appear here as they reach shareable
-              milestones.
+              Explore selected products and platforms in development. We turn complex challenges into purposeful digital experiences.
             </p>
           </div>
 
@@ -754,6 +755,31 @@
         </div>
       </section>
 
+      <section id="solution-finder" class="premium-solution" aria-labelledby="solution-heading">
+        <div class="container premium-solution-grid">
+          <div class="reveal">
+            <p class="section-label">Find your next step</p>
+            <h2 id="solution-heading">Technology should solve real business challenges.</h2>
+            <p>Not sure where to start? Tell us what you need, and we’ll help you find the right Naume Tech service. No lengthy questionnaire.</p>
+            <p>Explore an option, then request a conversation with that service already selected.</p>
+          </div>
+          <div class="solution-panel reveal" aria-label="Find your solution">
+            <h3>What can we help your business with?</h3>
+            <div class="solution-options" role="group" aria-label="Select a business technology need">
+              <button class="solution-option" type="button" aria-pressed="true" data-solution="managed">Keeping our IT running</button>
+              <button class="solution-option" type="button" aria-pressed="false" data-solution="m365">Microsoft 365 &amp; email</button>
+              <button class="solution-option" type="button" aria-pressed="false" data-solution="software">Building custom software</button>
+              <button class="solution-option" type="button" aria-pressed="false" data-solution="web">Website or online store</button>
+            </div>
+            <div class="solution-result" aria-live="polite" aria-atomic="true">
+              <strong id="solution-name">Managed IT Support</strong>
+              <p id="solution-description">Scoped remote support, maintenance and practical help for your business systems.</p>
+              <a class="btn btn-primary" id="solution-cta" href="#contact">Talk to us about this <span aria-hidden="true">↗</span></a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section class="cta-banner" aria-labelledby="cta-heading">
         <div class="container cta-inner">
           <div class="reveal">
@@ -966,7 +992,7 @@
               <li><a href="#services">Services</a></li>
             <li><a href="#managed-it">Managed IT</a></li>
               <li><a href="#why-us">Why Us</a></li>
-              <li><a href="#in-progress">In progress</a></li>
+              <li><a href="#in-progress">Our Work</a></li>
               <li><a href="#contact">Contact</a></li>
             </ul>
           </div>
@@ -1098,5 +1124,6 @@
     </button>
 
     <script src="js/main.js" defer></script>
+    <script src="js/premium.js" defer></script>
   </body>
 </html>
