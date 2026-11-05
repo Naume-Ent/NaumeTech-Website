@@ -653,7 +653,8 @@
                   >
                   <textarea id="message" name="message" required></textarea>
                 </div>
-                <button class="btn btn-primary" type="submit">
+                <div data-fs-error role="alert" aria-live="assertive"></div>
+                <button class="btn btn-primary" type="submit" data-fs-submit-btn>
                   Request a Consultation
                 </button>
                 <p class="form-privacy-note">We use your information to respond to your enquiry. Please do not include passwords or sensitive account details.</p>
@@ -821,6 +822,20 @@
       </svg>
     </button>
 
+    <script>
+      // Official Formspree AJAX integration. Keep the form action as a no-JS fallback.
+      window.formspree = window.formspree || function () {
+        (window.formspree.q = window.formspree.q || []).push(arguments);
+      };
+      window.formspree('initForm', {
+        formElement: '#contact-form',
+        formId: 'xzeewydp',
+        onSuccess: function () {
+          window.location.assign('/thank-you.html');
+        }
+      });
+    </script>
+    <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
     <script src="js/main.js" defer></script>
     <script src="js/premium.js" defer></script>
   </body>
