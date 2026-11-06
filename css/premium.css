@@ -143,3 +143,133 @@ body { overflow-x: clip; }
   color: #14372a !important;
   border-color: #e9f4e9;
 }
+
+/* Contact-only consultation journey. Scoped to prevent changes to other sections. */
+#contact .contact-next-steps {
+  margin-top: 1.6rem;
+  padding: clamp(1.2rem, 3vw, 1.9rem);
+  background: linear-gradient(145deg, #0b3027, #123e32);
+  color: #f3fff4;
+  border-radius: 20px;
+  box-shadow: 0 14px 32px rgba(8, 42, 30, .16);
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+#contact .contact-next-kicker {
+  margin: 0 0 .65rem;
+  color: #bdea84;
+  font-size: .73rem;
+  font-weight: 800;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+}
+#contact .contact-next-steps h3 {
+  margin: 0 0 .8rem;
+  color: #ffffff;
+  font-size: clamp(1.25rem, 2.2vw, 1.75rem);
+  line-height: 1.3;
+  letter-spacing: -.035em;
+}
+#contact .contact-next-intro {
+  margin: 0;
+  color: #deeee5;
+  font-size: .92rem;
+  line-height: 1.7;
+}
+#contact .contact-next-list {
+  padding: 1rem 0;
+  margin: 1rem 0;
+  list-style: none;
+  border-top: 1px solid rgba(221, 247, 227, .2);
+  border-bottom: 1px solid rgba(221, 247, 227, .2);
+}
+#contact .contact-next-list li {
+  display: grid;
+  grid-template-columns: 2.65rem minmax(0, 1fr);
+  align-items: start;
+  gap: .75rem;
+  margin: 0;
+  padding: .6rem 0;
+}
+#contact .contact-next-number {
+  display: grid;
+  place-items: center;
+  width: 2.55rem;
+  height: 2.55rem;
+  background: #245344;
+  color: #bdea84;
+  font-size: .81rem;
+  font-weight: 800;
+  border-radius: 12px;
+}
+#contact .contact-next-list strong {
+  display: block;
+  color: #ffffff;
+  font-size: .94rem;
+  margin-bottom: .2rem;
+}
+#contact .contact-next-list p {
+  margin: 0;
+  color: #d5e8dc;
+  font-size: .85rem;
+  line-height: 1.6;
+}
+#contact .contact-google-review {
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  padding: .9rem;
+  border: 1px solid rgba(189, 234, 132, .38);
+  background: rgba(255, 255, 255, .07);
+  border-radius: 13px;
+  color: #ffffff;
+  text-decoration: none;
+  min-width: 0;
+}
+#contact .contact-google-review:hover,
+#contact .contact-google-review:focus-visible {
+  background: rgba(255, 255, 255, .14);
+  color: #ffffff;
+}
+#contact .contact-review-stars {
+  color: #bdea84;
+  font-size: 1rem;
+  letter-spacing: -.09em;
+  white-space: nowrap;
+}
+#contact .contact-google-review strong,
+#contact .contact-google-review small {
+  display: block;
+  color: #ffffff;
+}
+#contact .contact-google-review small {
+  margin-top: .2rem;
+  color: #cfe4d5;
+  font-size: .78rem;
+}
+#contact .contact-review-arrow {
+  margin-left: auto;
+  color: #bdea84;
+  font-size: 1.15rem;
+}
+#contact .contact-next-disclaimer {
+  margin: 1rem 0 0;
+  font-size: .78rem;
+  color: #d5e8dc;
+  line-height: 1.5;
+}
+@media (max-width: 650px) {
+  #contact .contact-next-steps {
+    margin-top: 1.2rem;
+    padding: 1.15rem;
+    border-radius: 16px;
+  }
+  #contact .contact-google-review {
+    gap: .55rem;
+    padding: .75rem .65rem;
+    flex-wrap: wrap;
+  }
+  #contact .contact-review-stars {
+    font-size: .92rem;
+  }
+}
